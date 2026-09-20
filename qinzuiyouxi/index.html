@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="亲嘴游戏大全，提供各类情侣互动小游戏、恋爱模拟养成、浪漫约会场景与甜蜜互动指南，适合情侣增进感情。">
+    <meta name="keywords" content="亲嘴游戏,情侣互动游戏,恋爱模拟,甜蜜游戏,约会游戏">
+    <title>亲嘴游戏-甜蜜情侣互动与恋爱模拟体验平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --primary-hover: #e03162;
+            --bg-color: #fff0f3;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-secondary: #636e72;
+            --accent-pink: #ff7675;
+            --shadow: 0 4px 12px rgba(255, 77, 109, 0.15);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
+            padding: 80px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '♥';
+            position: absolute;
+            font-size: 20rem;
+            opacity: 0.1;
+            color: var(--primary-color);
+            top: -50px;
+            left: -50px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '♥';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            color: var(--primary-color);
+            bottom: -30px;
+            right: -30px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .tag {
+            background: rgba(255, 77, 109, 0.1);
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+        }
+
+        /* Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.25);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background-color: #ffe3e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-category {
+            font-size: 0.8rem;
+            color: var(--accent-pink);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+        }
+
+        .rating {
+            color: #fdcb6e;
+            font-size: 0.9rem;
+        }
+
+        .play-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .play-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Interactive Section */
+        .interactive-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .interactive-area {
+            margin: 30px 0;
+            padding: 30px;
+            background: #fff5f7;
+            border-radius: 20px;
+            border: 2px dashed var(--accent-pink);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-area:hover {
+            background: #ffe3e9;
+        }
+
+        .interactive-area h3 {
+            margin-bottom: 10px;
+        }
+
+        .interactive-area p {
+            color: var(--text-secondary);
+        }
+
+        .kiss-btn {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+            transition: transform 0.1s;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kiss-btn:active {
+            transform: scale(0.9);
+        }
+
+        /* Guide List */
+        .guide-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .guide-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
+        }
+
+        .guide-item:hover {
+            transform: translateX(5px);
+        }
+
+        .guide-icon {
+            font-size: 1.5rem;
+            margin-right: 20px;
+            background: #fff0f3;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--primary-color);
+        }
+
+        .guide-content h4 {
+            margin-bottom: 4px;
+        }
+
+        .guide-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            color: #b2bec3;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                gap: 16px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span>Love</span> 亲嘴游戏
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#games">游戏大全</a></li>
+                    <li><a href="#guide">恋爱指南</a></li>
+                    <li><a href="#interactive">甜蜜互动</a></li>
+                </ul>
+            </nav>
+            <a href="#interactive" class="cta-btn">开始游戏</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>增进感情的甜蜜互动</h1>
+        <p>精选情侣专属亲嘴游戏与恋爱模拟体验，在轻松氛围中拉近彼此距离，创造难忘回忆。</p>
+        <div class="hero-tags">
+            <span class="tag">情侣互动</span>
+            <span class="tag">恋爱模拟</span>
+            <span class="tag">约会挑战</span>
+            <span class="tag">甜蜜升温</span>
+        </div>
+        <button class="cta-btn" style="font-size: 1.1rem; padding: 12px 30px;" onclick="document.getElementById('interactive').scrollIntoView({behavior: 'smooth'})">立即体验</button>
+    </section>
+
+    <main class="container">
+        
+        <!-- 游戏分类展示 -->
+        <section id="games">
+            <div class="section-title">
+                <h2>热门亲嘴游戏推荐</h2>
+                <p>无论是初次约会的羞涩，还是热恋期的激情，这里都有适合的游戏</p>
+            </div>
+
+            <div class="game-grid">
+                <article class="game-card">
+                    <div class="card-image">💋</div>
+                    <div class="card-content">
+                        <span class="card-category">互动挑战</span>
+                        <h3 class="card-title">口红印记大作战</h3>
+                        <p class="card-desc">在对方身上寻找唇印，找到最多的人获胜，考验默契与观察力。</p>
+                        <div class="card-meta">
+                            <span class="rating">⭐ 4.8</span>
+                            <button class="play-btn">开始</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="card-image">🍬</div>
+                    <div class="card-content">
+                        <span class="card-category">甜蜜惩罚</span>
+                        <h3 class="card-title">糖衣炮弹</h3>
+                        <p class="card-desc">含着糖互相亲吻，品尝甜蜜的同时感受彼此的气息，氛围满分。</p>
+                        <div class="card-meta">
+                            <span class="rating">⭐ 4.9</span>
+                            <button class="play-btn">开始</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="card-image">🙈</div>
+                    <div class="card-content">
+                        <span class="card-category">害羞游戏</span>
+                        <h3 class="card-title">蒙眼接吻</h3>
+                        <p class="card-desc">蒙住双眼，仅凭触觉和嗅觉寻找对方，增加感官刺激与信任感。</p>
+                        <div class="card-meta">
+                            <span class="rating">⭐ 4.7</span>
+                            <button class="play-btn">开始</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="card-image">🎵</div>
+                    <div class="card-content">
+                        <span class="card-category">音乐节奏</span>
+                        <h3 class="card-title">心跳同频</h3>
+                        <p class="card-desc">随着音乐节奏调整亲吻的频率，保持节奏一致才能得分。</p>
+                        <div class="card-meta">
+                            <span class="rating">⭐ 4.6</span>
+                            <button class="play-btn">开始</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 互动体验区 -->
+        <section id="interactive" class="interactive-section">
+            <div class="section-title">
+                <h2>在线甜蜜互动</h2>
+                <p>点击下方按钮，体验简单的亲嘴游戏机制</p>
+            </div>
+            
+            <div class="interactive-area" id="kissArea" onclick="performKiss()">
+                <h3 id="kissStatus">点击按钮亲吻对方</h3>
+                <p>保持节奏，看看你们能坚持多久？</p>
+                <button class="kiss-btn" id="kissBtn">💋</button>
+            </div>
+            
+            <p style="font-size: 0.85rem; color: #999;">* 本互动仅供娱乐演示，请在私密安全的环境中进行。</p>
+        </section>
+
+        <!-- 恋爱指南 -->
+        <section id="guide">
+            <div class="section-title">
+                <h2>情侣游戏指南</h2>
+                <p>如何选择合适的游戏，让约会更加完美</p>
+            </div>
+
+            <div class="guide-list">
+                <div class="guide-item">
+                    <div class="guide-icon">🤝</div>
+                    <div class="guide-content">
+                        <h4>选择合适的游戏类型</h4>
+                        <p>根据当前的关系阶段选择。初次约会建议选择轻松、低风险的“羞羞挑战”；热恋期可以尝试高强度的“惩罚游戏”。</p>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-icon">🚦</div>
+                    <div class="guide-content">
+                        <h4>尊重对方的意愿</h4>
+                        <p>任何亲密游戏都应以双方自愿为前提。如果对方表现出拒绝或不适，应立即停止并给予安慰。</p>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-icon">🛡️</div>
+                    <div class="guide-content">
+                        <h4>注意卫生与安全</h4>
+                        <p>在亲密接触前确保口腔卫生，避免在生病期间进行此类游戏，注意保护双方的隐私与安全。</p>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-icon">🎭</div>
+                    <div class="guide-content">
+                        <h4>营造氛围</h4>
+                        <p>选择合适的背景音乐、灯光和私密环境，能让游戏效果事半功倍。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">免责声明</a>
+            <a href="#">隐私政策</a>
+            <a href="#">联系合作</a>
+        </div>
+        <p class="copyright">© 2023 亲嘴游戏 - 甜蜜情侣互动平台. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function performKiss() {
+            const btn = document.getElementById('kissBtn');
+            const status = document.getElementById('kissStatus');
+            
+            // 简单的视觉反馈
+            btn.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+            }, 100);
+
+            // 随机触发一些简单的文案变化
+            const texts = [
+                "太甜啦！❤️",
+                "继续保持！",
+                "默契度满分！",
+                "好害羞...🙈",
+                "节奏感不错！"
+            ];
+            status.innerText = texts[Math.floor(Math.random() * texts.length)];
+        }
+    </script>
+</body>
+</html>
