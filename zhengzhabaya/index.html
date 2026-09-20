@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="挣扎吧亚当 - 深度解析人类起源与进化挣扎的科幻探索网站，提供关于生命起源、文明演进与存在意义的思考与资料。">
+    <meta name="keywords" content="挣扎吧亚当, 人类起源, 进化论, 科幻, 存在主义, 生命意义">
+    <title>挣扎吧亚当 - 人类起源与进化挣扎的科幻探索</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0a0b10;
+            --bg-card: #14161f;
+            --bg-card-hover: #1c1f2b;
+            --primary: #7b61ff;
+            --primary-glow: rgba(123, 97, 255, 0.4);
+            --accent: #00f2ff;
+            --text-main: #e0e0e0;
+            --text-muted: #8b9bb4;
+            --border: #2a2e3d;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(10, 11, 16, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary), #5a42d1);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--primary-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 6rem 0;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #b3b3b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 400px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.5s;
+        }
+
+        .hero-visual:hover img {
+            opacity: 1;
+        }
+
+        .visual-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        /* Core Concepts */
+        .concepts {
+            padding: 5rem 0;
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .concept-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .concept-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .concept-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .concept-card h3 {
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .concept-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Timeline / Evolution */
+        .timeline-section {
+            padding: 5rem 0;
+            background: linear-gradient(to bottom, var(--bg-dark), #0f111a);
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--border);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: var(--bg-dark);
+            border: 3px solid var(--accent);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+            text-align: right;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -8px;
+        }
+
+        .content {
+            padding: 20px 30px;
+            background-color: var(--bg-card);
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .content h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .content span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Philosophy / FAQ */
+        .philosophy {
+            padding: 5rem 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-question::before {
+            content: '+';
+            margin-right: 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            padding-left: 20px;
+            border-left: 1px solid var(--border);
+            margin-left: 5px;
+        }
+
+        .quote-box {
+            background: rgba(123, 97, 255, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-style: italic;
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            background-color: #050608;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            text-align: center;
+            color: #555;
+            font-size: 0.85rem;
+            padding-top: 2rem;
+            border-top: 1px solid #1a1d26;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .timeline-container::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 23px;
+            }
+
+            .left {
+                text-align: left;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-inner {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-inner">
+            <div class="logo">挣扎吧<span>亚当</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#origin">起源</a></li>
+                    <li><a href="#evolution">进化</a></li>
+                    <li><a href="#meaning">意义</a></li>
+                    <li><a href="#community">社区</a></li>
+                </ul>
+            </nav>
+            <a href="#join" class="cta-btn">加入探索</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>在虚无中寻找<br>存在的意义</h1>
+                    <p>“挣扎吧亚当”是一个致力于探讨人类起源、进化困境与存在主义哲学的深度探索平台。我们通过科学、历史与哲学的交叉视角，解构生命的底层逻辑。</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>120+</h3>
+                            <p>深度文章</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>50k+</h3>
+                            <p>探索者</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>∞</h3>
+                            <p>未知可能</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <!-- Placeholder for abstract DNA/Universe visual -->
+                    <img src="https://picsum.photos/seed/adam_struggle/600/400" alt="Abstract representation of human struggle and evolution">
+                    <div class="visual-overlay">第0号实验体：意识觉醒</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Concepts -->
+        <section id="origin" class="concepts">
+            <div class="container">
+                <h2 class="section-title">核心概念</h2>
+                <div class="concept-grid">
+                    <article class="concept-card">
+                        <span class="concept-icon">🧬</span>
+                        <h3>生物本能</h3>
+                        <p>作为碳基生命的亚当，首先要面对的是生存的原始驱动力。从基因编码到趋利避害，本能是我们挣扎的底层代码。</p>
+                    </article>
+                    <article class="concept-card">
+                        <span class="concept-icon">🧠</span>
+                        <h3>自我意识</h3>
+                        <p>这是人类独有的诅咒与礼物。当我们开始审视自己的挣扎时，痛苦便产生了。自我意识让我们质疑存在的合理性。</p>
+                    </article>
+                    <article class="concept-card">
+                        <span class="concept-icon">🌌</span>
+                        <h3>宇宙尺度</h3>
+                        <p>将个体放在138亿年的宇宙历史中，个体的挣扎微不足道。这种视角的转换，是获得解脱的起点。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Evolution Timeline -->
+        <section id="evolution" class="timeline-section">
+            <div class="container">
+                <h2 class="section-title">挣扎的演变</h2>
+                <div class="timeline-container">
+                    <div class="timeline-item left">
+                        <div class="content">
+                            <span>远古时期</span>
+                            <h3>生存挣扎</h3>
+                            <p>在荒野中与野兽搏斗，为食物和领地争斗。这是最原始、最直接的挣扎形式。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="content">
+                            <span>文明建立</span>
+                            <h3>社会挣扎</h3>
+                            <p>语言与文字诞生，冲突从生存转向权力与地位。我们在关系中挣扎，在阶层中挣扎。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="content">
+                            <span>信息时代</span>
+                            <h3>认知挣扎</h3>
+                            <p>信息过载与算法推荐。我们在海量的观点中迷失，挣扎着寻找真理与自我。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="content">
+                            <span>未来纪元</span>
+                            <h3>存在挣扎</h3>
+                            <p>当意识可以上传，生命形式无限延展。新的挣扎将关于“我是谁”以及“我是否真实”。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy & FAQ -->
+        <section id="meaning" class="philosophy">
+            <div class="container">
+                <div class="faq-grid">
+                    <div>
+                        <h2 class="section-title">思考与探讨</h2>
+                        <div class="faq-item">
+                            <div class="faq-question">为什么要挣扎？</div>
+                            <div class="faq-answer">因为“静止”往往意味着停滞或消亡。挣扎是生命力的体现，是推动文明和个人突破边界、追求更高形态的唯一动力。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">挣扎一定有结果吗？</div>
+                            <div class="faq-answer">不一定。但正如尼采所言，那些杀不死你的，终将使你更强大。结果往往不在于最终是否获胜，而在于过程赋予你的意义。</div>
+                        </div>
+                        <div class="quote-box">
+                            “人是一根能思想的芦苇。” —— 帕斯卡
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="section-title">常见问题</h2>
+                        <div class="faq-item">
+                            <div class="faq-question">如何应对无意义的挣扎？</div>
+                            <div class="faq-answer">尝试建立内在的评价体系，关注当下的体验而非遥远的功利目标。将“不得不做”转化为“我选择去做”。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">这个网站的内容来源是？</div>
+                            <div class="faq-answer">本站内容基于公开的科学文献、哲学著作及对人类历史演变的综合分析，旨在提供理性的参考与启发。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">适合什么人群阅读？</div>
+                            <div class="faq-answer">适合对生命科学、哲学思辨、人类历史感兴趣，或正处于人生迷茫期寻求理性指引的读者。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="padding: 4rem 0; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">准备好开始你的探索了吗？</h2>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">加入我们的讨论组，分享你的观点与故事。</p>
+                <a href="#" class="cta-btn" style="padding: 0.8rem 2.5rem; font-size: 1rem;">立即加入社区</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem;">挣扎吧<span>亚当</span></div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 300px;">
+                        探索人类存在的边界，在理性的光辉中寻找前行的勇气。我们相信，每一次挣扎都是进化的必经之路。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>探索</h4>
+                    <ul>
+                        <li><a href="#">生命起源</a></li>
+                        <li><a href="#">进化论</a></li>
+                        <li><a href="#">存在主义</a></li>
+                        <li><a href="#">未来科技</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>资源</h4>
+                    <ul>
+                        <li><a href="#">阅读指南</a></li>
+                        <li><a href="#">推荐书目</a></li>
+                        <li><a href="#">术语表</a></li>
+                        <li><a href="#">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注</h4>
+                    <ul>
+                        <li><a href="#">Twitter / X</a></li>
+                        <li><a href="#">微博</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">RSS 订阅</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 挣扎吧亚当. All rights reserved. 本站内容仅供交流与学习参考。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
