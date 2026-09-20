@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拳击小游戏 - 在线免费拳击格斗游戏平台，提供3D街机拳击、拳击俱乐部模拟器、休闲拳击对战等多种类型的拳台游戏，支持电脑和手机浏览器直接游玩。">
+    <meta name="keywords" content="拳击小游戏,拳皇,街头霸王,拳击游戏,格斗游戏,在线游戏">
+    <title>拳击小游戏-在线格斗游戏与拳台对战平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4500;
+            --secondary-color: #1a1a1a;
+            --accent-color: #ffd700;
+            --text-color: #333;
+            --light-bg: #f4f4f4;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ff4500" fill-opacity="0.1"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #ff6a33;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 69, 0, 0.6);
+        }
+
+        /* Game Categories */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 3rem 0 2rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 3rem;
+        }
+
+        .category-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            border-bottom: 4px solid transparent;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .category-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .category-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Featured Games */
+        .featured-games {
+            background-color: #fff;
+            padding: 4rem 0;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .game-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .game-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .game-thumbnail {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .game-card:hover .game-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .game-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .game-info {
+            padding: 1.5rem;
+        }
+
+        .game-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .game-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-play {
+            flex: 1;
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+
+        .btn-play:hover {
+            background-color: var(--primary-color);
+        }
+
+        .btn-fav {
+            width: 40px;
+            background-color: #f0f0f0;
+            color: #666;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-fav:hover {
+            background-color: #ffe6e6;
+            color: var(--primary-color);
+        }
+
+        /* How to Play / Guide */
+        .guide-section {
+            background-color: var(--light-bg);
+            padding: 4rem 0;
+        }
+
+        .guide-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .guide-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .guide-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .guide-steps {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .guide-steps li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .guide-steps li::before {
+            content: '👊';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2rem;
+        }
+
+        .guide-visual {
+            flex: 1;
+            min-width: 300px;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .key-instruction {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .key {
+            background: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 40px;
+            text-align: center;
+            border-bottom: 3px solid #000;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 4rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #fff;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: #555;
+            background-color: #fcfcfc;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.2rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #999;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none; /* Simple mobile hide for this demo */
+            }
+
+            .header-container {
+                justify-content: center;
+            }
+            
+            .logo {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span>⚡</span> 拳击小游戏
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#category">分类</a></li>
+                    <li><a href="#featured">热门游戏</a></li>
+                    <li><a href="#guide">玩法指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>释放你的格斗潜能</h1>
+                <p>无需下载，打开浏览器即可体验最刺激的拳击小游戏。从经典街机格斗到休闲拳台模拟，这里有你想玩的一切。</p>
+                <a href="#featured" class="cta-button">立即开始对战</a>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="category" class="container">
+            <h2 class="section-title">游戏分类</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <span class="category-icon">🥊</span>
+                    <h3>经典格斗</h3>
+                    <p>重温拳皇、街头霸王等经典IP，体验原汁原味的格斗手感。</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🏃</span>
+                    <h3>休闲拳击</h3>
+                    <p>轻松有趣的动作游戏，适合放松心情，锻炼反应速度。</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🤖</span>
+                    <h3>AI 对战</h3>
+                    <p>挑战强大的电脑AI，提升你的连招技巧和防守意识。</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🏆</span>
+                    <h3>模拟经营</h3>
+                    <p>从无名小卒到拳王，经营你的拳击俱乐部，打造冠军团队。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Games Section -->
+        <section id="featured" class="featured-games">
+            <div class="container">
+                <h2 class="section-title">本周热门推荐</h2>
+                <div class="games-grid">
+                    <!-- Game 1 -->
+                    <article class="game-card">
+                        <div class="game-thumbnail">
+                            <span class="game-tag">热门</span>
+                            <img src="https://picsum.photos/seed/fight1/400/250" alt="街头拳皇3D">
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">街头拳皇3D</h3>
+                            <div class="game-meta">
+                                <span>动作</span>
+                                <span>难度: ★★★☆☆</span>
+                            </div>
+                            <div class="game-actions">
+                                <a href="#" class="btn-play">立即游戏</a>
+                                <button class="btn-fav" aria-label="收藏">♥</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Game 2 -->
+                    <article class="game-card">
+                        <div class="game-thumbnail">
+                            <span class="game-tag">新游</span>
+                            <img src="https://picsum.photos/seed/fight2/400/250" alt="拳击俱乐部模拟">
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">拳击俱乐部模拟</h3>
+                            <div class="game-meta">
+                                <span>模拟</span>
+                                <span>难度: ★★☆☆☆</span>
+                            </div>
+                            <div class="game-actions">
+                                <a href="#" class="btn-play">立即游戏</a>
+                                <button class="btn-fav" aria-label="收藏">♥</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Game 3 -->
+                    <article class="game-card">
+                        <div class="game-thumbnail">
+                            <span class="game-tag">休闲</span>
+                            <img src="https://picsum.photos/seed/fight3/400/250" alt="迷你拳王">
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">迷你拳王</h3>
+                            <div class="game-meta">
+                                <span>休闲</span>
+                                <span>难度: ★☆☆☆☆</span>
+                            </div>
+                            <div class="game-actions">
+                                <a href="#" class="btn-play">立即游戏</a>
+                                <button class="btn-fav" aria-label="收藏">♥</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="guide-section">
+            <div class="container">
+                <h2 class="section-title">新手指南</h2>
+                <div class="guide-content">
+                    <div class="guide-text">
+                        <h3>如何开始你的拳击生涯？</h3>
+                        <p>选择一款适合自己水平的拳击小游戏，无论是追求快节奏的格斗对决，还是策略性的模拟经营，都能找到乐趣。本站所有游戏均经过安全检测，支持PC和移动端流畅游玩。</p>
+                        <ul class="guide-steps">
+                            <li>点击游戏卡片上的“立即游戏”按钮</li>
+                            <li>加载完成后，点击屏幕中央的“开始”</li>
+                            <li>根据游戏指引熟悉操作按键</li>
+                            <li>与电脑AI或真人玩家展开对战</li>
+                        </ul>
+                    </div>
+                    <div class="guide-visual">
+                        <div class="key-instruction">
+                            <span class="key">A</span> <span class="key">D</span> <span>左右移动</span>
+                        </div>
+                        <div class="key-instruction">
+                            <span class="key">W</span> <span class="key">S</span> <span>上下闪避</span>
+                        </div>
+                        <div class="key-instruction">
+                            <span class="key">J</span> <span>左勾拳</span>
+                        </div>
+                        <div class="key-instruction">
+                            <span class="key">K</span> <span>右直拳</span>
+                        </div>
+                        <div class="key-instruction">
+                            <span class="key">L</span> <span>重拳/必杀技</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="container faq-section">
+            <h2 class="section-title">常见问题</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    这些拳击小游戏需要下载吗？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>不需要。本站提供的所有拳击小游戏均为网页版，您可以直接在浏览器中打开并游玩，无需安装任何客户端软件。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    支持手机玩吗？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>支持。大部分休闲类拳击小游戏适配了触屏操作，您可以使用手机浏览器直接体验。部分硬核格斗游戏建议在电脑键盘上操作以获得最佳体验。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    游戏卡顿怎么办？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>请确保您的网络连接稳定。如果游戏画面卡顿，可以尝试关闭浏览器中其他占用内存较多的标签页，或降低游戏画面的画质设置。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    游戏是否安全？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>本站所有游戏均经过安全扫描，不含病毒或恶意代码。我们致力于提供绿色健康的在线游戏环境。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 1rem;">
+                    <span>⚡</span> 拳击小游戏
+                </div>
+                <p>专注于提供最优质的在线拳击与格斗游戏体验，让每一位玩家都能在拳台上找到属于自己的荣耀。</p>
+            </div>
+            <div class="footer-col">
+                <h4>游戏分类</h4>
+                <ul>
+                    <li><a href="#">经典格斗</a></li>
+                    <li><a href="#">休闲拳击</a></li>
+                    <li><a href="#">模拟经营</a></li>
+                    <li><a href="#">3D街机</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">操作说明</a></li>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">网站介绍</a></li>
+                    <li><a href="#">合作伙伴</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 拳击小游戏平台 版权所有</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Simple Interaction for Favorite Button
+        document.querySelectorAll('.btn-fav').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.textContent = this.textContent === '♥' ? '♡' : '♥';
+                this.style.color = this.textContent === '♥' ? '#ff4500' : '#666';
+            });
+        });
+    </script>
+</body>
+          </html>
