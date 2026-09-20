@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="果树防虫网专业选购指南。提供防虫网材质对比、覆盖技术、作物保护方案及常见问题解答，帮助果农实现绿色生态种植。">
+    <meta name="keywords" content="果树防虫网,防虫网,果园防护,绿色种植,农业设施">
+    <title>果树防虫网-绿色生态果园防护与种植解决方案</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --primary-dark: #1b5e20;
+            --accent-color: #f9a825;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-light: #f4f7f4;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        /* Content Section */
+        .content-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--text-main);
+        }
+
+        .article-content p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .article-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .highlight-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .highlight-box strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .guide-list li {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .guide-list a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .guide-list span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 4rem;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            background-color: #fafafa;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.2rem;
+            max-height: 500px; /* Arbitrary large height */
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #263238;
+            color: #cfd8dc;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #37474f;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                🌿 果园卫士 <span>Pro</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#materials">材质选择</a></li>
+                    <li><a href="#usage">覆盖技术</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-button">获取种植方案</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>果树防虫网：打造无农药绿色果园</h1>
+        <p>利用物理阻隔技术，有效防控果园害虫，减少化学农药使用，提升果品安全等级与经济效益。</p>
+        <div class="hero-tags">
+            <span class="tag">物理防虫</span>
+            <span class="tag">绿色种植</span>
+            <span class="tag">生态农业</span>
+            <span class="tag">降本增效</span>
+        </div>
+        <a href="#materials" class="cta-button" style="background-color: var(--accent-color); color: #333;">了解如何选择</a>
+    </section>
+
+    <main class="container">
+        
+        <!-- 核心优势 -->
+        <section class="features-grid">
+            <article class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3>物理防虫</h3>
+                <p>通过高密度物理阻隔，从源头上切断害虫进入果园的通道，无需喷洒农药。</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon">🍎</span>
+                <h3>提升品质</h3>
+                <p>减少农药残留，改善果实外观色泽，提高果实甜度和商品率。</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon">💰</span>
+                <h3>降低成本</h3>
+                <p>虽然前期投入一定成本，但长期看可大幅减少人工喷药费用及农药支出。</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon">🌡️</span>
+                <h3>环境调控</h3>
+                <p>部分防虫网具有遮光、降温、保湿功能，有利于果树生长环境优化。</p>
+            </article>
+        </section>
+
+        <div class="content-section">
+            <!-- 左侧主要文章内容 -->
+            <article class="article-content" id="materials">
+                <h1>果树防虫网的作用与选材指南</h1>
+                <p>果树防虫网是现代生态果园建设中不可或缺的设施农业设备。它利用高强度的聚乙烯材料，编织成孔径极小的网状结构，覆盖在果园上方或四周，形成一道坚固的“防护墙”。</p>
+                
+                <h2>一、为什么要使用防虫网？</h2>
+                <p>传统的果园管理依赖化学农药，虽然能迅速杀灭害虫，但带来了环境污染、农药残留超标、害虫抗药性增强以及果农健康风险等问题。使用果树防虫网属于“以虫治虫”的生态防治范畴，通过物理隔离，让害虫无法产卵或进食，从而彻底改变果园的生态结构。</p>
+
+                <h2>二、如何选择合适的防虫网？</h2>
+                <p>市面上的防虫网种类繁多，选择时需考虑以下几个关键参数：</p>
+                <ul>
+                    <li><strong>网眼大小（目数）：</strong> 这是最重要的指标。一般来说，防虫网目数越高，防虫效果越好，但通风透光性会略有下降。通常建议选择<strong>40目至60目</strong>的防虫网，既能有效阻挡蚜虫、卷叶蛾、食心虫等常见害虫，又能保证果树的光合作用需求。</li>
+                    <li><strong>材质与抗老化：</strong> 必须选用添加了抗紫外线（UV）助剂的聚乙烯材料，以保证在露天环境下使用3-5年不脆化、不破裂。</li>
+                    <li><strong>颜色选择：</strong> 黑色防虫网吸热多，适合夏季降温；银灰色防虫网反光性好，能有效驱避蚜虫，适合春季使用。</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>💡 专家建议：</strong>
+                    对于新建果园，建议直接在定植时搭建固定式防虫网棚架，这样比后期拉网更省工、更稳固，且遮光率更易控制。
+                </div>
+
+                <h2>三、不同作物的覆盖方案</h2>
+                <p>防虫网的覆盖方式并非一成不变，需根据作物种类调整：</p>
+                <ul>
+                    <li><strong>矮化密植果树：</strong> 可采用全园覆盖方式，网高根据树冠高度调整，网顶距树冠顶端保持约50-80厘米的空隙，以利于通风。</li>
+                    <li><strong>葡萄、樱桃等藤本果树：</strong> 建议采用“大棚式”覆盖，即用钢管搭建拱棚，将防虫网固定在棚架上，既防虫又防鸟。</li>
+                    <li><strong>高杆乔木果树：</strong> 如苹果、梨树，可针对树冠内部区域搭建小型防虫网，重点保护果实，而非全树覆盖，以降低成本。</li>
+                </ul>
+            </article>
+
+            <!-- 右侧侧边栏 -->
+            <aside>
+                <div class="sidebar-widget">
+                    <h3>选购指南</h3>
+                    <ul class="guide-list">
+                        <li><a href="#">40目防虫网适用范围 <span>通用</span></a></li>
+                        <li><a href="#">黑色与银灰色网对比 <span>优缺点</span></a></li>
+                        <li><a href="#">如何计算所需面积 <span>计算器</span></a></li>
+                        <li><a href="#">安装支架材质推荐 <span>钢材</span></a></li>
+                        <li><a href="#">网片固定方法 <span>扎带</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>常见病害对照表</h3>
+                    <ul class="guide-list">
+                        <li><a href="#">蚜虫 - 银灰网有效驱避</a></li>
+                        <li><a href="#">食心虫 - 高目数网阻挡</a></li>
+                        <li><a href="#">金龟子 - 覆盖网阻挡</a></li>
+                        <li><a href="#">鸟类 - 增加网目密度</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-dark);">常见问题解答</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">防虫网会影响果树的光照吗？</div>
+                <div class="faq-answer">
+                    <p>会有一定影响，但通过选择合适的目数（如40-60目）和颜色（如银灰色），可以将光照损失控制在10%以内。同时，防虫网能过滤掉强烈的紫外线，反而有利于果实着色。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">防虫网能用几年？如何维护？</div>
+                <div class="faq-answer">
+                    <p>优质抗老化防虫网在正常使用下可维持3-5年。维护时，需在雨季前检查网片是否有破损，并在冬季落叶后进行清洁和检查，确保春季覆盖时无破损。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">覆盖防虫网后，果园里的天敌昆虫还能生存吗？</div>
+                <div class="faq-answer">
+                    <p>防虫网只阻挡害虫，不影响有益昆虫（如蜜蜂、寄生蜂）的进出。相反，由于没有农药喷洒，天敌昆虫的生存环境会得到极大改善，有利于生物防治。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>果园卫士Pro</h4>
+                <p>致力于提供专业的农业设施解决方案，助力中国农业向绿色、生态、可持续方向发展。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">产品中心</a></li>
+                    <li><a href="#">种植案例</a></li>
+                    <li><a href="#">技术支持</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>电话：400-123-4567</li>
+                    <li>邮箱：support@greenfarm.com</li>
+                    <li>地址：农业科技示范区A栋</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 果园卫士Pro. 保留所有权利. 本页面内容仅供参考，具体技术参数请咨询专业农艺师。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
